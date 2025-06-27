@@ -1,0 +1,131 @@
+@use '../utils'as utils;
+@use './colors'as *;
+@use '../utils/functions'as fn;
+
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-stroke-width: 0.1px;
+  -moz-osx-font-smoothing: grayscale;
+  
+
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a,
+a:visited,
+a:active {
+  cursor: pointer;
+  letter-spacing: fn.rem(0.2);
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+
+li {
+  letter-spacing: 0.5;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: utils.$base-font;
+  font-weight: 300;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+
+//////////////////////////////////////////////Light theme
+
+.light {
+
+  .text {
+    color: $Dark-Blue-light-mode-text;
+  }
+
+  .bg {
+    background-color: $Light-gray-light-mode-background;
+  }
+
+  .alt-bg {
+    background-color: $Light-gray-light-mode-background;
+  }
+
+  .alt-text {
+    font-weight: 600
+  }
+
+  input::placeholder {
+    color: $Dark-gray-light-mode-input;
+    opacity: .5;
+  }
+}
+
+
+/////////////////////////////////////////Dark theme
+.dark {
+
+  .text {
+    color: $Light-gray-light-mode-background;
+  }
+
+  .bg {
+    background-color: $Dark-Blue-dark-mode-background;
+  }
+
+  .alt-text {
+    color: $Light-gray-light-mode-background;
+    font-weight: 600;
+  }
+
+  .alt-bg {
+    background-color: $Dark-Blue-dark-mode-elements;
+  }
+
+  input::placeholder {
+    color: $Light-gray-light-mode-background;
+    opacity: .8;
+  }
+}

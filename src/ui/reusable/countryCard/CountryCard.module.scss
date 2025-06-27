@@ -1,0 +1,53 @@
+.country_card {
+    box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .1);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .country_flag {
+        width: 100%;
+        height: 180px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        object-fit: cover;
+        transition: all 2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .card_content {
+        padding: 1rem;
+
+        .country_name {
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .country_info {
+            padding: 1rem 0 .5rem;
+            display: flex;
+            flex-direction: column;
+            row-gap: .5rem;
+            font-weight: 600;
+            font-size: 1rem;
+
+
+            .capital {
+                display: flex;
+                flex-direction: row;
+
+                .country_details {
+                    font-weight: 300;
+                    margin-left: .5rem;
+                }
+            }
+        }
+    }
+}
