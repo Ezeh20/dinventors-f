@@ -9,23 +9,21 @@ const Home = () => {
 	const { filteredCountries } = useContext(CountriesContext);
 
 	return (
-		<div>
-			<Container>
-				<div className={`${styles.home} bg text`}>
-					<Search />
-					<p className={styles.total}>({filteredCountries.length})</p>
-					{filteredCountries.length < 1 && (
-						<p className={styles.not_found}> No country found</p>
-					)}
-					<div className={styles.contain}>
-						{filteredCountries &&
-							filteredCountries.map((country, idx) => {
-								return <CountryCards key={idx} country={country} />;
-							})}
-					</div>
+		<Container>
+			<div className={`${styles.home} bg text`}>
+				<Search />
+				<p className={styles.total}>({filteredCountries.length})</p>
+				{filteredCountries.length < 1 && (
+					<p className={styles.not_found}> No country found</p>
+				)}
+				<div className={styles.contain}>
+					{filteredCountries &&
+						filteredCountries.map((country, idx) => {
+							return <CountryCards key={idx} country={country} />;
+						})}
 				</div>
-			</Container>
-		</div>
+			</div>
+		</Container>
 	);
 };
 

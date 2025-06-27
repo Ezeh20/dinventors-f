@@ -1,4 +1,4 @@
-import "./Button.module.scss";
+import styles from "./Button.module.scss";
 import React from "react";
 
 const ButtonTypes = {
@@ -14,7 +14,10 @@ interface PROPS {
 
 const Button: React.FC<PROPS> = ({ onClick, children, buttonType }) => {
 	return (
-		<button className={`buttons  ${ButtonTypes[buttonType]} alt-bg text`} onClick={onClick}>
+		<button
+			className={`${ButtonTypes[buttonType]} ${styles.buttons}`}
+			onClick={onClick}
+		>
 			{children}
 		</button>
 	);

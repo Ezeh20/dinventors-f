@@ -65,6 +65,7 @@ body {
   padding: 0;
   font-family: utils.$base-font;
   font-weight: 300;
+  background-color: #fff;
 }
 
 input,
@@ -75,57 +76,4 @@ select {
 
 input::placeholder {
   font-size: 1rem;
-}
-
-//////////////////////////////////////////////Light theme
-
-.light {
-
-  .text {
-    color: $Dark-Blue-light-mode-text;
-  }
-
-  .bg {
-    background-color: $Light-gray-light-mode-background;
-  }
-
-  .alt-bg {
-    background-color: $Light-gray-light-mode-background;
-  }
-
-  .alt-text {
-    font-weight: 600
-  }
-
-  input::placeholder {
-    color: $Dark-gray-light-mode-input;
-    opacity: .5;
-  }
-}
-
-
-/////////////////////////////////////////Dark theme
-.dark {
-
-  .text {
-    color: $Light-gray-light-mode-background;
-  }
-
-  .bg {
-    background-color: $Dark-Blue-dark-mode-background;
-  }
-
-  .alt-text {
-    color: $Light-gray-light-mode-background;
-    font-weight: 600;
-  }
-
-  .alt-bg {
-    background-color: $Dark-Blue-dark-mode-elements;
-  }
-
-  input::placeholder {
-    color: $Light-gray-light-mode-background;
-    opacity: .8;
-  }
 }

@@ -11,6 +11,7 @@ interface Country {
 	flags: {
 		png: string;
 	};
+	cca2: string;
 }
 
 interface CountryCardsProps {
@@ -18,13 +19,13 @@ interface CountryCardsProps {
 }
 
 const CountryCards: React.FC<CountryCardsProps> = ({ country }) => {
-	const { capital, name, region, population, flags } = country;
+	const { capital, name, region, population, flags, cca2 } = country;
 	const { common } = name;
 	const { png } = flags;
 
 	const formatted = new Intl.NumberFormat().format(population);
 	const nav = useNavigate();
-	const dynamic = common.replaceAll(" ", "-");
+	const dynamic = cca2.replaceAll(" ", "");
 
 	const handleNavigate = () => {
 		nav(dynamic, {
