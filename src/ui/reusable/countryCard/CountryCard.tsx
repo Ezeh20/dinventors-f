@@ -22,7 +22,6 @@ const CountryCards: React.FC<CountryCardsProps> = ({ country }) => {
 	const { capital, name, region, population, flags, cca2 } = country;
 	const { common } = name;
 	const { png } = flags;
-
 	const formatted = new Intl.NumberFormat().format(population);
 	const nav = useNavigate();
 	const dynamic = cca2.replaceAll(" ", "");

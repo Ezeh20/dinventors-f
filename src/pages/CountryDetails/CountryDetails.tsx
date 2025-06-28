@@ -62,7 +62,6 @@ const CountryDetails = () => {
 					setError("Country not found");
 				}
 			} catch (err: any) {
-				console.error("Error fetching country data:", err);
 				setError(err.error || "Failed to fetch country data");
 			} finally {
 				setLoading(false);
@@ -119,11 +118,11 @@ const CountryDetails = () => {
 	const { common, nativeName } = name;
 	const { svg } = flags;
 
-	const objectKeys = Object.keys(nativeName);
+	const objectKeys = nativeName && Object.keys(nativeName);
 	const lang = objectKeys[objectKeys.length - 1];
 	const Native_name = nativeName[lang].common;
-	const currenciesKeys = Object.keys(currencies);
-	const Language = Object.keys(languages);
+	const currenciesKeys = currencies && Object.keys(currencies);
+	const Language = languages && Object.keys(languages);
 	const Lang = Language.filter((_, idx) => idx < 5).map((lang, idx) => {
 		return (
 			<span key={idx}>
@@ -158,8 +157,6 @@ const CountryDetails = () => {
 	const Border =
 		borders &&
 		borders.map((border, idx) => {
-			console.log(border, "asee");
-
 			const handleBorderClick = (borderCode: string) => {
 				borderNav(`/${borderCode}`);
 			};

@@ -15,6 +15,26 @@ html {
 
 }
 
+:root {
+  --background-color-alt: #ffffff;
+  --text-color: #111517;
+  --text-color-secondary: #888;
+  --accent-color: #3f51b5;
+  --hover-bg-color: #e0e0e0;
+  --hover-text-color: #111517;
+  --selected-bg-color: #eee; 
+  --selected-text-color: #111517;
+  --border-color: #f0f0f0;
+  --skeleton-bg-start: #f0f0f082;
+  --skeleton-bg-mid: #e0e0e0ba;
+  --skeleton-border-color: #e5e5e5;
+  --skeleton-element-color: #dcdcdc8b;
+  --skeleton-overlay-color: rgba(255, 255, 255, 0.7);
+  --skeleton-overlay-border: rgba(255, 255, 255, 0.05);
+  --skeleton-text-color: #cccccc84;
+}
+
+
 * {
   box-sizing: border-box;
   padding: 0;

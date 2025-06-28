@@ -5,13 +5,13 @@ import CountryDetails from "./pages/CountryDetails/CountryDetails";
 
 const App = () => {
 	return (
-		<div>
+		<>
 			<Navigation />
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path=":country" element={<CountryDetails />} />
 			</Routes>
-		</div>
+		</>
 	);
 };
 

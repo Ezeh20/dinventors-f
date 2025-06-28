@@ -1,98 +1,238 @@
-@use '../../scss/global/colors'as *;
+@use "../../scss/global/colors" as *;
 
 .searchContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    row-gap: 2rem;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    position: sticky;
-    top: 1rem;
-    z-index: 100;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	position: sticky;
+	top: 1rem;
+	z-index: 100;
 
-    @media screen and (min-width: 768px) {
-        flex-direction: row;
-    }
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+		align-items: center;
+		padding: 0;
+		justify-content: space-between;
+	}
 
-    .searchArea {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        padding: .8rem 1rem;
-        box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .1);
-        column-gap: 1rem;
-        border-radius: 5px;
-        background: #fff;
+	.searchArea {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		padding: 0rem 1rem;
+		box-shadow: 0.1rem 0.1rem 0.8rem rgba(0, 0, 0, 0.08);
+		column-gap: 1rem;
+		border-radius: 5px;
+		background: var(--background-color-alt);
+		color: var(--text-color);
 
+		@media screen and (min-width: 768px) {
+			width: 500px;
+		}
 
-        @media screen and (min-width: 768px) {
-            width: 500px;
-        }
+		.serchIcon {
+			font-size: 1.7rem;
+			color: var(--text-color-secondary);
 
-        .serchIcon {
-            font-size: 1.7rem;
+			&:hover {
+				cursor: pointer;
+				color: var(--accent-color);
+			}
 
-            &:hover {
-                cursor: pointer;
-            }
-        }
+			&.loading {
+				opacity: 0.6;
+				cursor: not-allowed;
+			}
+		}
 
-        .homeInput {
-            width: 100%;
-            padding: .3rem .3rem .3rem 0;
-        }
-    }
+		.homeInput {
+			width: 100%;
+			padding: 1rem 0rem;
+			border: none;
+			outline: none;
+			background: transparent;
+			font-size: 1rem;
+			color: var(--text-color);
 
-    .drop_down_container {
-        width: 220px;
-        display: flex;
-        flex-direction: column;
-        align-self: flex-start;
-        position: relative;
-        background: #fff;
+			&::placeholder {
+				color: var(--text-color-secondary);
+				font-size: 14.5px;
+			}
+		}
 
-        .drop_down_current {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .1);
-            border-radius: 5px;
-            padding: .95rem 1rem;
-            background: #fff;
+		.clearSearchIcon {
+			font-size: 1.3rem;
+			color: var(--text-color-secondary);
 
-            &:hover {
-                cursor: pointer;
-            }
-            .drop_down_icon{
-                font-size: 1.3rem;
-            }
-        }
+			&:hover {
+				cursor: pointer;
+				color: var(--accent-color);
+			}
+		}
+	}
 
-        .options {
-            width: 100%;
-            box-shadow: .1rem .1rem 1rem rgba(0, 0, 0, .1);
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 4rem;
-            background: #fff;
+	.filterSortActions {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1.5rem;
+		width: 100%;
 
-            .region {
-                &:hover {
-                    cursor: pointer;
-                    background: $Dark-Blue-dark-mode-background;
-                    color: $General-white;
-                }
-            }
+		@media screen and (min-width: 768px) {
+			flex-direction: row;
+			column-gap: 1.5rem;
+			width: auto;
+			align-items: center;
+			margin-left: auto;
+		}
+	}
 
-            .option {
-                padding: .8rem 1rem;
-                width: 100%;
-            }
-        }
-    }
+	.dropDownContainer {
+		width: 280px;
+		position: relative;
+		background: var(--background-color-alt);
+		border-radius: 5px;
+		box-shadow: 0.1rem 0.1rem 0.8rem rgba(0, 0, 0, 0.08);
+		color: var(--text-color);
+
+		.dropDownCurrent {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.95rem 1rem;
+			background: var(--background-color-alt);
+			border-radius: 5px;
+			cursor: pointer;
+
+			.selectedSummary {
+				font-weight: 600;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: calc(100% - 30px);
+			}
+
+			.placeholderText {
+				color: var(--text-color-secondary);
+				font-size: 14px;
+			}
+
+			.dropdownToggleIcon {
+				font-size: 1.3rem;
+				color: var(--text-color-secondary);
+				transition: transform 0.3s ease-in-out;
+
+				&.rotate {
+					transform: rotate(180deg);
+				}
+			}
+		}
+
+		.options {
+			width: 100%;
+			box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.1);
+			border-radius: 5px;
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			top: calc(100% + 0.5rem);
+			background: var(--background-color-alt);
+			color: var(--text-color);
+			z-index: 10;
+			padding-top: 0.8rem;
+
+			.optionGroup {
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				.groupHeader {
+					display: flex;
+					padding: 0 1rem;
+					justify-content: space-between;
+					align-items: center;
+					margin-bottom: 0.3rem;
+				}
+
+				.groupTitle {
+					margin: 0;
+					font-size: 14px;
+					color: var(--text-color-secondary);
+					text-transform: uppercase;
+					letter-spacing: 0.05em;
+				}
+
+				.clearGroupIcon {
+					font-size: 1rem;
+					color: var(--text-color-secondary);
+
+					cursor: pointer;
+					&:hover {
+						color: var(--accent-color);
+					}
+				}
+
+				.optionsList {
+					display: flex;
+					flex-direction: column;
+				}
+
+				.optionItem {
+					width: 100%;
+					cursor: pointer;
+					padding: 0.5rem 1rem;
+					font-size: 14px;
+					font-weight: 500;
+					&:hover {
+						background: var(--hover-bg-color);
+						color: var(--hover-text-color);
+					}
+
+					&.selected {
+						background: var(--selected-bg-color);
+						color: var(--selected-text-color);
+						font-weight: 700;
+					}
+
+					.optionText {
+						margin: 0;
+					}
+				}
+			}
+			.optionGroupDivider {
+				border: none;
+				border-top: 1px solid var(--border-color);
+				margin: 1rem 0;
+			}
+		}
+	}
+
+	.clearAllBtn {
+		padding: 0.8rem 1.5rem;
+		background: var(--background-color-alt);
+		color: var(--text-color);
+		border: none;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+		font-weight: 600;
+		transition: background-color 0.2s ease-in-out;
+		white-space: nowrap;
+
+		&:hover {
+			background-color: var(--hover-bg-color);
+			color: var(--hover-text-color);
+		}
+
+		&:disabled {
+			opacity: 0.6;
+			cursor: not-allowed;
+		}
+	}
 }
