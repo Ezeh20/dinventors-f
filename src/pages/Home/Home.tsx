@@ -1,10 +1,10 @@
+import styles from "./Home.module.scss";
 import { useContext } from "react";
 import CountryCards from "../../ui/reusable/countryCard/CountryCard";
 import Search from "../../ui/search/Search";
 import { CountriesContext } from "../../context/CountriesContext";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Container from "../../ui/layout/container/Container";
-import styles from "./Home.module.scss";
 import Skeleton from "../../ui/skeleton/Skeleton";
 
 const Home = () => {
@@ -18,12 +18,15 @@ const Home = () => {
 	} = useContext(CountriesContext);
 
 	const totalPages = Math.ceil(filteredCountries.length / itemsPerPage);
+	const scroll = () => window.scrollTo({ top: 0, behavior: "smooth" });
 	const handlePrevious = () => {
 		setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+		scroll();
 	};
 
 	const handleNext = () => {
 		setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+		scroll();
 	};
 
 	return (
@@ -61,7 +64,7 @@ const Home = () => {
 										disabled={currentPage === 1}
 										className={styles.paginationButton}
 									>
-										<IoIosArrowBack size={18}/>
+										<IoIosArrowBack size={18} />
 									</button>
 									<span className={styles.pageInfo}>
 										Page {currentPage} of {totalPages}
@@ -72,7 +75,7 @@ const Home = () => {
 										disabled={currentPage === totalPages}
 										className={styles.paginationButton}
 									>
-										<IoIosArrowForward size={18}/>
+										<IoIosArrowForward size={18} />
 									</button>
 								</div>
 							</div>

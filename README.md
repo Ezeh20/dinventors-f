@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# Country Explorer React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-----
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Country Explorer is a dynamic React application that allows users to browse a list of countries, view their details, and apply various filters and sorting options. It fetches country data from an external API and implements client-side pagination.
 
-## Expanding the ESLint configuration
+-----
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  * **View All Countries:** Displays a list of over 250 countries.
+  * **Search by Name:** Find specific countries quickly using a search bar.
+  * **Filter by Region:** Narrow down results by continent (e.g., Africa, Asia, Europe).
+  * **Sort Options:** Sort countries by common name (ascending/descending) or population (ascending/descending).
+  * **Client-Side Pagination:** Efficiently browse through large lists of countries, displaying 12 countries per page.
+  * **Pagination Controls:** Navigate between pages using "Previous" and "Next" buttons, with current page/total pages display and quick links to the next two pages.
+  * **Loading States:** Provides visual feedback (skeletons) while data is being fetched.
+  * **Error Handling:** Displays user-friendly messages if data fetching fails or no results are found.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+-----
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Setup Instructions
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Follow these steps to get the project up and running on your local machine.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Installation
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <your-repository-url>
+    cd <your-project-folder>
+    ```
+
+    (Replace `<your-repository-url>` with the actual URL of your Git repository and `<your-project-folder>` with your project's directory name.)
+
+2.  **Install dependencies:**
+    Using npm:
+
+    ```bash
+    npm install
+    ```
+
+    Or using Yarn:
+
+    ```bash
+    yarn install
+    ```
+
+### Running the Application
+
+1.  **Start the development server:**
+    Using npm:
+
+    ```bash
+    npm run dev
+    ```
+
+    Or using Yarn:
+
+    ```bash
+    yarn dev
+    ```
+
+    This will open the application in your browser at `http://localhost:3000` (or another available port).
+
+-----
+
+## Screenshots
+
+
+-----
+
+## Tools Used
+
+  * **React**
+  * **TypeScript**
+  * **Sass/SCSS**
+  * **REST Countries API** (for country data)
+
+-----
+
+## API
+
+This project utilizes the [REST Countries API](https://restcountries.com/) to fetch all country data, which is then managed and paginated on the client-side.

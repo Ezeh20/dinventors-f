@@ -40,10 +40,10 @@ const CountryCards: React.FC<CountryCardsProps> = ({ country }) => {
 	));
 
 	return (
-		<div className={`${styles.country_card} alt-bg`} onClick={handleNavigate}>
+		<div className={`${styles.country_card}`} onClick={handleNavigate}>
 			<img src={png} alt="flag" className={styles.country_flag} />
 			<div className={styles.card_content}>
-				<span className={`${styles.country_name} alt-text`}>{common}</span>
+				<span className={`${styles.country_name}`}>{common}</span>
 				<div className={styles.country_info}>
 					<span>
 						Population: <span className={styles.country_details}>{formatted}</span>
@@ -53,6 +53,9 @@ const CountryCards: React.FC<CountryCardsProps> = ({ country }) => {
 					</span>
 					<span className={styles.capital}>Capital: {Capital}</span>
 				</div>
+			</div>
+			<div className={styles.info}>
+				<p>i</p>
 			</div>
 		</div>
 	);

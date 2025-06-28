@@ -38,10 +38,9 @@ interface CountryData {
 }
 
 const CountryDetails = () => {
-	const { country } = useParams<{ country: string }>();
 	const nav = useNavigate();
 	const borderNav = useNavigate();
-
+	const { country } = useParams<{ country: string }>();
 	const [countryData, setCountryData] = useState<CountryData | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -89,16 +88,15 @@ const CountryDetails = () => {
 
 	if (error || !countryData) {
 		return (
-							<Container>
-					<div className={`${styles.discription}`}>
-						<Button buttonType="back" onClick={back}>
-							<HiArrowNarrowLeft />
-							Back
-						</Button>
-						<div className={styles.error}>{error || "Country not found"}</div>
-					</div>
-				</Container>
-	
+			<Container>
+				<div className={`${styles.discription}`}>
+					<Button buttonType="back" onClick={back}>
+						<HiArrowNarrowLeft />
+						Back
+					</Button>
+					<div className={styles.error}>{error || "Country not found"}</div>
+				</div>
+			</Container>
 		);
 	}
 
