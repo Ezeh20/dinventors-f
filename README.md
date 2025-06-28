@@ -32,11 +32,9 @@ Follow these steps to get the project up and running on your local machine.
 1.  **Clone the repository:**
 
     ```bash
-    git clone <your-repository-url>
-    cd <your-project-folder>
+    git clone https://github.com/Ezeh20/dinventors-f.git
+    cd dinventors-f
     ```
-
-    (Replace `<your-repository-url>` with the actual URL of your Git repository and `<your-project-folder>` with your project's directory name.)
 
 2.  **Install dependencies:**
     Using npm:
