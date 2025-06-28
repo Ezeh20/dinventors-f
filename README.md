@@ -69,7 +69,9 @@ Follow these steps to get the project up and running on your local machine.
 -----
 
 ## Screenshots
+<img width="1680" alt="Screenshot 2025-06-28 at 2 49 39 AM" src="https://github.com/user-attachments/assets/e859e5d9-59ad-434b-9f84-e6bd6aac8ff6" />
 
+<img width="1680" alt="Screenshot 2025-06-28 at 2 49 48 AM" src="https://github.com/user-attachments/assets/70ee1a76-3b60-4c68-9d75-ec5352169d2f" />
 
 -----
 
